@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notifier-deployment
+  name: notifier-service
 spec:
   replicas: 1
   selector:
@@ -13,7 +13,8 @@ spec:
         app: notifier-service
     spec:
       containers:
-      - name: notifier-service
-        image: coelee/notifier-service:latest
-        ports:
-        - containerPort: 5003
+        - name: notifier-service
+          image: coelee/notifier-service:latest  # Ganti dengan nama image yang sesuai
+          ports:
+            - containerPort: 5000
+

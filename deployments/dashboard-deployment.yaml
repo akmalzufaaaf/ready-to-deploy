@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dashboard-deployment
+  name: dashboard-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web-dashboard
+      app: dashboard-service
   template:
     metadata:
       labels:
-        app: web-dashboard
+        app: dashboard-service
     spec:
       containers:
-      - name: web-dashboard
-        image: coelee/web-dashboard:latest
-        ports:
-        - containerPort: 3000
+        - name: dashboard-service
+          image: coelee/dashboard-service:latest  # Ganti dengan nama image yang sesuai
+          ports:
+            - containerPort: 5000
+

@@ -1,22 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gateway-deployment
+  name: gateway-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: device-gateway
+      app: gateway-service
   template:
     metadata:
       labels:
-        app: device-gateway
+        app: gateway-service
     spec:
       containers:
-      - name: device-gateway
-        image: coelee/device-gateway:latest
-        ports:
-        - containerPort: 5001
-      env:
-       - name: MQTT_BROKER
-         value: "mosquitto-service"
+        - name: gateway-service
+          image: coelee/gateway-service:latest  # Ganti dengan nama image yang sesuai
+          ports:
+            - containerPort: 5000
+

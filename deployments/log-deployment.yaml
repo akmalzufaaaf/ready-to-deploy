@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: log-deployment
+  name: log-service
 spec:
   replicas: 1
   selector:
@@ -13,7 +13,7 @@ spec:
         app: log-service
     spec:
       containers:
-      - name: log-service
-        image: coelee/log-service:latest
-        ports:
-        - containerPort: 5002
+        - name: log-service
+          image: coelee/log-service:latest  # Ganti dengan nama image yang sesuai
+          ports:
+            - containerPort: 5000

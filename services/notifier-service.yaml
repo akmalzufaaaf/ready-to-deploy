@@ -7,5 +7,6 @@ spec:
     app: notifier-service
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 5003
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP

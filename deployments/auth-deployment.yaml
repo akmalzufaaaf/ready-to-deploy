@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-deployment
+  name: auth-service
 spec:
   replicas: 1
   selector:
@@ -13,10 +13,11 @@ spec:
         app: auth-service
     spec:
       containers:
-      - name: auth-service
-        image: coelee/auth-service:latest
-        ports:
-        - containerPort: 5000
-        env:
-        - name: MONGO_URI
-          value: mongodb://mongo-service:27017
+        - name: auth-service
+          image: coelee/auth-service:latest  # Ganti dengan nama image yang sesuai
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongo-service:27017"
+
